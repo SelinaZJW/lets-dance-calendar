@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import CssBaseline from '@mui/material/CssBaseline';
-import getTheme from '../theme';
+import getTheme from 'theme';
 import AOS from 'aos';
 
 export const useDarkMode = (): [string, () => void, boolean] => {
@@ -46,7 +46,7 @@ export default function Page({ children }: Props): JSX.Element {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
+      jssStyles.parentElement.removeChild(jssStyles);
     }
 
     AOS.init({

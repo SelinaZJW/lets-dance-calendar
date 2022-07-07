@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import NoSsr from '@mui/material/NoSsr';
 import { useTheme } from '@mui/material/styles';
 
-import Container from './Container';
+import Container from 'components/Container';
 
 interface ResizableFrameProps {
   src: string;
