@@ -52,9 +52,9 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
         </Box>
       </Box>
       <Box paddingX={2} paddingY={2}>
-        <Box>
+        {/*<Box>
           <NavItem title={'Landings'} items={landingPages} />
-        </Box>
+        </Box>*/}
         <Box>
           <NavItem title={'Company'} items={companyPages} />
         </Box>
