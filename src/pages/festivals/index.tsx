@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
   const directus = await getDirectusClient();
 
   const {data} = await directus.items('Festivals').readByQuery({
-    fields: ['*'],
+    fields: ['*', 'styles.Styles_id.*'],
     limit: -1,
   });
 
