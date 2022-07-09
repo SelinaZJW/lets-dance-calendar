@@ -5,6 +5,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { NavItem } from './components';
+import TopNav from 'components/TopNav';
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -61,6 +62,24 @@ const Topbar = ({
           width={1}
         />
       </Box>
+      
+      <TopNav />
+      <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
+        <Button
+          onClick={() => onSidebarOpen()}
+          aria-label="Menu"
+          variant={'outlined'}
+          sx={{
+            borderRadius: 2,
+            minWidth: 'auto',
+            padding: 1,
+            borderColor: alpha(theme.palette.divider, 0.2),
+          }}
+        >
+          <MenuIcon />
+        </Button>
+      </Box>
+      {/*       
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box>
           <NavItem
@@ -137,7 +156,7 @@ const Topbar = ({
         >
           <MenuIcon />
         </Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

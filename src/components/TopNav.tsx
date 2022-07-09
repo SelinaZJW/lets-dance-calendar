@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 
 import ThemeModeToggler from 'components/ThemeModeToggler';
 
@@ -11,17 +11,17 @@ interface Props {
 
 const TopNav = ({ colorInvert = false }: Props): JSX.Element => {
   return (
-    <Box display={'flex'} justifyContent={'flex-end'} alignItems={'center'}>
-      <Box marginRight={{ xs: 1, sm: 2 }}>
+    <Box display={{xs: 'none', md: 'flex'}} justifyContent={'flex-end'} alignItems={'center'}>
+      <Box marginRight={{ xs: 2, sm: 4 }}>
         <Link
           underline="none"
           component="a"
-          href="/demos"
+          href="/home"
           color={colorInvert ? 'common.white' : 'text.primary'}
           sx={{ display: 'flex', alignItems: 'center' }}
         >
-          Demos
-          <Box
+          Home
+          {/* <Box
             padding={0.5}
             display={'inline-flex'}
             borderRadius={1}
@@ -34,28 +34,38 @@ const TopNav = ({ colorInvert = false }: Props): JSX.Element => {
             >
               new
             </Typography>
-          </Box>
+          </Box> */}
         </Link>
       </Box>
-      <Box marginRight={{ xs: 1, sm: 2 }}>
+      <Box marginRight={{ xs: 2, sm: 4 }}>
         <Link
           underline="none"
           component="a"
-          href="/blocks"
+          href="/listing"
           color={colorInvert ? 'common.white' : 'text.primary'}
           sx={{ display: 'flex', alignItems: 'center' }}
         >
-          Components
+          Festivals
         </Link>
       </Box>
-      <Box marginRight={{ xs: 1, sm: 2 }}>
+      <Box marginRight={{ xs: 2, sm: 4 }}>
         <Link
           underline="none"
           component="a"
-          href="/docs/introduction"
+          href="/calendar"
           color={colorInvert ? 'common.white' : 'text.primary'}
         >
-          Docs
+          Calendar
+        </Link>
+      </Box>
+      <Box marginRight={{ xs: 2, sm: 4 }}>
+        <Link
+          underline="none"
+          component="a"
+          href="/about"
+          color={colorInvert ? 'common.white' : 'text.primary'}
+        >
+          About
         </Link>
       </Box>
       <Box>

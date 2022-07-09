@@ -2,7 +2,7 @@ import {getDirectusClient} from '../../lib/directus';
 import React from 'react';
 import {Main} from '../../layouts';
 
-const FestivalListPage: React.FC = (props): JSX.Element => (
+const OrganiserListPage: React.FC = (props): JSX.Element => (
   <Main>
     <pre>
       {JSON.stringify(props, null, 2)}
@@ -15,8 +15,8 @@ export const getStaticProps = async () => {
   // console.log(`categroy: ${category}`);
   const directus = await getDirectusClient();
 
-  const {data} = await directus.items('Festivals').readByQuery({
-    fields: ['*', 'styles.Styles_id.*', 'region.*', 'organiser.*'],
+  const {data} = await directus.items('Organisers').readByQuery({
+    fields: ['*'],
     limit: -1,
   });
 
@@ -27,4 +27,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default FestivalListPage;
+export default OrganiserListPage;

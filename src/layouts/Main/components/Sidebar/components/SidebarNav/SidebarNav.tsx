@@ -1,33 +1,39 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
+import Link from '@mui/material/Link';
 
-import NavItem from './components/NavItem';
+// import NavItem from './components/NavItem';
+
 
 interface Props {
-  pages: {
-    landings: Array<PageItem>;
-    company: Array<PageItem>;
-    account: Array<PageItem>;
-    secondary: Array<PageItem>;
-    blog: Array<PageItem>;
-    portfolio: Array<PageItem>;
-  };
+  colorInvert?: boolean;
 }
 
-const SidebarNav = ({ pages }: Props): JSX.Element => {
+// interface Props {
+//   pages: {
+//     landings: Array<PageItem>;
+//     company: Array<PageItem>;
+//     account: Array<PageItem>;
+//     secondary: Array<PageItem>;
+//     blog: Array<PageItem>;
+//     portfolio: Array<PageItem>;
+//   };
+// }
+
+const SidebarNav = ({ colorInvert = false }: Props): JSX.Element => {
   const theme = useTheme();
   const { mode } = theme.palette;
 
-  const {
-    landings: landingPages,
-    secondary: secondaryPages,
-    company: companyPages,
-    account: accountPages,
-    portfolio: portfolioPages,
-    blog: blogPages,
-  } = pages;
+  // const {
+  //   landings: landingPages,
+  //   secondary: secondaryPages,
+  //   company: companyPages,
+  //   account: accountPages,
+  //   portfolio: portfolioPages,
+  //   blog: blogPages,
+  // } = pages;
 
   return (
     <Box>
@@ -51,50 +57,54 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
           />
         </Box>
       </Box>
+      
       <Box paddingX={2} paddingY={2}>
-        {/*<Box>
-          <NavItem title={'Landings'} items={landingPages} />
-        </Box>*/}
-        <Box>
-          <NavItem title={'Company'} items={companyPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Pages'} items={secondaryPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Account'} items={accountPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Blog'} items={blogPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Portfolio'} items={portfolioPages} />
-        </Box>
-        <Box marginTop={2}>
-          <Button
-            size={'large'}
-            variant="outlined"
-            fullWidth
+        <Box marginTop={3}>
+          <Link
+            underline="none"
             component="a"
-            href="/docs/introduction"
+            href="/home"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+            sx={{ display: 'flex', alignItems: 'center' }}
           >
-            Documentation
-          </Button>
+          Home
+          </Link>
         </Box>
-        <Box marginTop={1}>
-          <Button
-            size={'large'}
-            variant="contained"
-            color="primary"
-            fullWidth
+        <Box marginTop={3}>
+          <Link
+            underline="none"
             component="a"
-            target="blank"
-            href="https://mui.com/store/items/the-front-landing-page/"
+            href="/listing"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+            sx={{ display: 'flex', alignItems: 'center' }}
           >
-            Purchase now
-          </Button>
+            Festivals
+          </Link>
         </Box>
+        <Box marginTop={3}>
+          <Link
+            underline="none"
+            component="a"
+            href="/calendar"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+            sx={{ display: 'flex', alignItems: 'center' }}
+          >
+            Calendar
+          </Link>
+        </Box>
+        <Box marginTop={3}>
+          <Link
+            underline="none"
+            component="a"
+            href="/about"
+            color={colorInvert ? 'common.white' : 'text.primary'}
+          >
+            About
+          </Link>
+        </Box>
+        
       </Box>
+      
     </Box>
   );
 };

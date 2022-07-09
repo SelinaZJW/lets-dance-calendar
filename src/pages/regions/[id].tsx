@@ -2,7 +2,7 @@ import {getDirectusClient} from '../../lib/directus';
 import React from 'react';
 import {Main} from '../../layouts';
 
-const FestivalPage: React.FC = (props): JSX.Element => (
+const RegionPage: React.FC = (props): JSX.Element => (
   <Main>
     <pre>
       {JSON.stringify(props, null, 2)}
@@ -15,25 +15,34 @@ export const getStaticProps = async ({params}) => {
 
   const {id} = params;
 
-  const data = await directus.items('Festivals').readOne(
-    id, {
-      fields: ['*', 'styles.Styles_id.*', 'region.*', 'organiser.*']
-    }
+  const data = await directus.items('Regions').readOne(
+    id
   );
+
+  const {data: festivals} = await directus.items('Festivals').readByQuery({
+    fields: ['*', 'styles.Styles_id.*', 'region.*', 'organiser.*'],
+    limit: -1,
+    filter: {
+      'region': {
+        'id': {
+          '_eq': id
+          }
+      }
+    }
+  })
 
   return {
     props: {
-      data
+      region: data,
+      festivals
     },
   };
 };
 
-//SSG: Static Site Generation 
-    //recompling possible/legal pages at building stage, so it's not interacting with Directus in real time
 export async function getStaticPaths() {
   const directus = await getDirectusClient();
 
-  const { data } = await directus.items('Festivals').readByQuery({
+  const { data } = await directus.items('Regions').readByQuery({
     fields: 'id',
     limit: -1,
   });
@@ -48,4 +57,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default FestivalPage;
+export default RegionPage;

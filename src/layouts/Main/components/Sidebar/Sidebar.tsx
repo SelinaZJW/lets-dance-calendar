@@ -8,17 +8,17 @@ interface Props {
   onClose: () => void;
   open: boolean;
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;
-  pages: {
-    landings: Array<PageItem>;
-    company: Array<PageItem>;
-    account: Array<PageItem>;
-    secondary: Array<PageItem>;
-    blog: Array<PageItem>;
-    portfolio: Array<PageItem>;
-  };
+  // pages: {
+  //   landings: Array<PageItem>;
+  //   company: Array<PageItem>;
+  //   account: Array<PageItem>;
+  //   secondary: Array<PageItem>;
+  //   blog: Array<PageItem>;
+  //   portfolio: Array<PageItem>;
+  // };
 }
 
-const Sidebar = ({ pages, open, variant, onClose }: Props): JSX.Element => {
+const Sidebar = ({ open, variant, onClose }: Props): JSX.Element => {
   return (
     <Drawer
       anchor="left"
@@ -38,7 +38,7 @@ const Sidebar = ({ pages, open, variant, onClose }: Props): JSX.Element => {
           padding: 1,
         }}
       >
-        <SidebarNav pages={pages} />
+        <SidebarNav />
       </Box>
     </Drawer>
   );
