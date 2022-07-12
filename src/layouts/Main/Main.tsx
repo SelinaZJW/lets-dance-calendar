@@ -10,7 +10,7 @@ import Container from 'components/Container';
 
 import { Topbar, Sidebar, Footer } from './components';
 
-import pages from '../navigation';
+// import pages from '../navigation';
 
 interface Props {
   children: React.ReactNode;
@@ -63,7 +63,6 @@ const Main = ({
         <Container paddingY={3} paddingX={5}>
           <Topbar
             onSidebarOpen={handleSidebarOpen}
-            pages={pages}
             colorInvert={trigger ? false : colorInvert}
           />
         </Container>

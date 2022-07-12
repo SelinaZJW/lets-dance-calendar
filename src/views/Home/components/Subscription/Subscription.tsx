@@ -42,8 +42,7 @@ const Subscription = (): JSX.Element => {
                 color={'text.secondary'}
                 data-aos={'fade-up'}
               >
-                Don't lose a chance to be among the firsts to know about our
-                upcoming news and updates.
+                Be among the firsts to know about dance festivals worldwide.
               </Typography>
             </Box>
             <Box

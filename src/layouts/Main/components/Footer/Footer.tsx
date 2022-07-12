@@ -12,6 +12,7 @@ const Footer = (): JSX.Element => {
 
   return (
     <Grid container spacing={2}>
+
       <Grid item xs={12}>
         <Box
           display={'flex'}
@@ -38,6 +39,7 @@ const Footer = (): JSX.Element => {
               width={1}
             />
           </Box>
+          {/* 
           <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
             <Box marginTop={1} marginRight={2}>
               <Link
@@ -61,6 +63,7 @@ const Footer = (): JSX.Element => {
                 Documentation
               </Link>
             </Box>
+            
             <Box marginTop={1}>
               <Button
                 variant="outlined"
@@ -73,9 +76,11 @@ const Footer = (): JSX.Element => {
                 Purchase now
               </Button>
             </Box>
-          </Box>
+          </Box> */}
+
         </Box>
       </Grid>
+
       <Grid item xs={12}>
         <Typography
           align={'center'}
@@ -83,7 +88,7 @@ const Footer = (): JSX.Element => {
           color="text.secondary"
           gutterBottom
         >
-          &copy; theFront. 2021, Maccarian. All rights reserved
+          By Selina Zheng
         </Typography>
         <Typography
           align={'center'}
@@ -97,6 +102,7 @@ const Footer = (): JSX.Element => {
           experience and for marketing purposes.
         </Typography>
       </Grid>
+
     </Grid>
   );
 };

@@ -4,38 +4,38 @@ import Button from '@mui/material/Button';
 import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { NavItem } from './components';
+// import { NavItem } from './components';
 import TopNav from 'components/TopNav';
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/ban-types
   onSidebarOpen: () => void;
-  pages: {
-    landings: Array<PageItem>;
-    company: Array<PageItem>;
-    account: Array<PageItem>;
-    secondary: Array<PageItem>;
-    blog: Array<PageItem>;
-    portfolio: Array<PageItem>;
-  };
+  // pages: {
+  //   landings: Array<PageItem>;
+  //   company: Array<PageItem>;
+  //   account: Array<PageItem>;
+  //   secondary: Array<PageItem>;
+  //   blog: Array<PageItem>;
+  //   portfolio: Array<PageItem>;
+  // };
   colorInvert?: boolean;
 }
 
 const Topbar = ({
   onSidebarOpen,
-  pages,
+  // pages,
   colorInvert = false,
 }: Props): JSX.Element => {
   const theme = useTheme();
   const { mode } = theme.palette;
-  const {
-    landings: landingPages,
-    secondary: secondaryPages,
-    company: companyPages,
-    account: accountPages,
-    portfolio: portfolioPages,
-    blog: blogPages,
-  } = pages;
+  // const {
+  //   landings: landingPages,
+  //   secondary: secondaryPages,
+  //   company: companyPages,
+  //   account: accountPages,
+  //   portfolio: portfolioPages,
+  //   blog: blogPages,
+  // } = pages;
 
   return (
     <Box
@@ -64,6 +64,7 @@ const Topbar = ({
       </Box>
       
       <TopNav />
+
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
         <Button
           onClick={() => onSidebarOpen()}

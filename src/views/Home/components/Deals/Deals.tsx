@@ -68,7 +68,7 @@ const mock = [
   },
 ];
 
-const Spaces = (): JSX.Element => {
+const Deals = (): JSX.Element => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -79,7 +79,7 @@ const Spaces = (): JSX.Element => {
     arrows: false,
     infinite: true,
     slidesToShow: isMd ? 3 : 1,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 2000,
   };
@@ -96,7 +96,7 @@ const Spaces = (): JSX.Element => {
           color={'secondary'}
           align={'center'}
         >
-          Popular courses
+          Deals
         </Typography>
         <Typography
           variant="h4"
@@ -107,7 +107,7 @@ const Spaces = (): JSX.Element => {
             fontWeight: 700,
           }}
         >
-          Browse our popular courses
+          Festivals on discount
         </Typography>
         <Typography
           variant="h6"
@@ -115,7 +115,7 @@ const Spaces = (): JSX.Element => {
           color={'text.secondary'}
           data-aos={'fade-up'}
         >
-          Here are our popular course you might want to learn from your tutor.
+          Dancing on a budget? Take advantage of deals we found worldwide
         </Typography>
         <Box
           display="flex"
@@ -337,4 +337,4 @@ const Spaces = (): JSX.Element => {
   );
 };
 
-export default Spaces;
+export default Deals;

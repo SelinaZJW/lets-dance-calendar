@@ -6,10 +6,10 @@ import Main from '../../layouts/Main';
 import Container from '../../components/Container';
 import {
   Categories,
-  Courses,
   Hero,
   PromoNumbers,
-  Reviews,
+  Calendar,
+  Deals,
   Subscription,
 } from './components';
 
@@ -37,7 +37,11 @@ const Home = (): JSX.Element => {
           <Container>
             <Divider />
           </Container>
-          <Courses />
+          <Calendar />
+          <Container>
+            <Divider />
+          </Container>
+          <Deals />
         </Container>
 
         <Box
@@ -60,9 +64,9 @@ const Home = (): JSX.Element => {
 
       </Box>
 
-      <Container>
+      {/* <Container>
         <Reviews />
-      </Container>
+      </Container> */}
 
       <Box
         sx={{

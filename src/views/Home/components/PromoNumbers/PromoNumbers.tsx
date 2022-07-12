@@ -131,7 +131,7 @@ const PromoNumbers = (): JSX.Element => {
             fontWeight: 700,
           }}
         >
-          Our global class is open for all
+          Celebrate dancing every style everywhere
         </Typography>
         <Typography
           variant="h6"

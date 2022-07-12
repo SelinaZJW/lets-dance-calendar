@@ -224,7 +224,7 @@ const Categories = (): JSX.Element => {
             fontWeight: 700,
           }}
         >
-          Choose your course by categories
+          Choose your next festival by region
         </Typography>
         <Typography
           variant="h6"
@@ -232,14 +232,14 @@ const Categories = (): JSX.Element => {
           color={'text.secondary'}
           data-aos={'fade-up'}
         >
-          The best way to learn is by using skills.
+          Browse dance festivals in any region in the world.
           <br />
-          Browse the available course categories, choose your favourite one and
-          start learning.
+          Bachata on the beach in Dominican Republic? Tango in a ballroom in Vienna? Zouk in a bar in Rio? We got you covered!
         </Typography>
       </Box>
-      <Box>
-        <Grid container spacing={4}>
+
+      <Box marginBottom={5}>
+        <Grid container spacing={3}>
           {mock.map((item, i) => (
             <Grid item xs={12} sm={6} md={3} key={i}>
               <Box
@@ -316,6 +316,88 @@ const Categories = (): JSX.Element => {
                         Learn more
                       </Button>
                     </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+
+      <Box marginBottom={4}>
+        <Typography
+          variant="h4"
+          align={'center'}
+          data-aos={'fade-up'}
+          gutterBottom
+          sx={{
+            fontWeight: 700,
+          }}
+        >
+          Or by dance style
+        </Typography>
+        <Typography
+          variant="h6"
+          align={'center'}
+          color={'text.secondary'}
+          data-aos={'fade-up'}
+        >
+          Browse events by 20 dance styles below.
+        </Typography>
+      </Box>
+      <Box>
+        <Grid container spacing={1}>
+          {mock.map((item, i) => (
+            <Grid item xs={4} sm={3} md={2} key={i}>
+              {/* Number of dance styles can be divided by 3, 4, 6 */}
+              <Box
+                display={'block'}
+                width={1}
+                height={1}
+                sx={{
+                  textDecoration: 'none',
+                  transition: 'all .2s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                  },
+                }}
+              >
+                <Box
+                  component={Card}
+                  padding={4}
+                  width={1}
+                  height={1}
+                  data-aos={'fade-up'}
+                  data-aos-delay={i * 100}
+                  data-aos-offset={100}
+                  data-aos-duration={600}
+                >
+                  <Box display={'flex'} flexDirection={'column'}>
+                    <Box
+                      component={Avatar}
+                      width={60}
+                      height={60}
+                      marginBottom={2}
+                      bgcolor={alpha(item.color, 0.1)}
+                      color={item.color}
+                      variant={'rounded'}
+                      borderRadius={2}
+                    >
+                      {item.icon}
+                    </Box>
+                    <Typography
+                      variant={'h6'}
+                      gutterBottom
+                      sx={{ fontWeight: 700 }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography color="text.secondary">
+                      {item.subtitle}
+                    </Typography>
+                    <Box sx={{ flexGrow: 1 }} />
+                    
                   </Box>
                 </Box>
               </Box>
