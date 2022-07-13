@@ -6,41 +6,45 @@ import Container from 'components/Container';
 
 import {
   Headline,
-  Banner,
   Products,
   SidebarFilters,
   Newsletter,
-  Partners,
 } from './components';
 import FiltersWithDropdown from './components/FiltersWithDropdown';
 
 const Listing = (): JSX.Element => {
   return (
     <Main>
-      <Box bgcolor={'alternate.main'}>
+      <Box bgcolor={'alternate.main'} >
         <Container paddingY={{ xs: 2, sm: 2.5 }}>
           <Headline />
         </Container>
       </Box>
-      <Container paddingBottom={'0 !important'}>
+      {/* <Container paddingBottom={'0 !important'}>
         <Banner />
+      </Container> */}
+      <Container paddingY={0} id='1'>
+        <FiltersWithDropdown>
+          <Products />
+        </FiltersWithDropdown>
       </Container>
-      <Container>
-        <FiltersWithDropdown />
-      </Container>
+      
       <Container>
         <SidebarFilters>
           <Products />
         </SidebarFilters>
       </Container>
+      
       <Box bgcolor={'alternate.main'}>
         <Container>
           <Newsletter />
         </Container>
       </Box>
-      <Container>
-        <Partners />
-      </Container>
+      
+      {/* Deals here maybe?? */}
+      {/* <Container>
+        <Partners /> 
+      </Container> */}
     </Main>
   );
 };

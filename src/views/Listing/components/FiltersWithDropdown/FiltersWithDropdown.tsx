@@ -1,12 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import { useTheme } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+import Pagination from '@mui/material/Pagination';
+import Checkbox from '@mui/material/Checkbox';
 
 import {
-  FilterSize,
+  FilterStyle,
+  FilterRegion,
+  FilterCountry,
+
   FilterPrice,
   FilterColor,
   FilterBrand,
@@ -15,43 +19,86 @@ import {
 
 import Container from 'components/Container';
 
-const FiltersWithDropdown = (): JSX.Element => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
   const theme = useTheme();
+
   return (
-    <Container>
-      <Box>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" href="#">
-            Home
-          </Link>
-          <Link underline="hover" color="inherit" href="#">
-            T-shirts
-          </Link>
-          <Typography color="text.primary">Classy sweatshirt</Typography>
-        </Breadcrumbs>
-        <Typography variant={'h4'} fontWeight={700} marginTop={2}>
-          Classy sweatshirt
-        </Typography>
-      </Box>
+    <Container paddingY={4}>
       <Box
         display={'flex'}
-        alignItems={{ xs: 'flex-start', md: 'center' }}
+        // alignItems={{ xs: 'flex-start', md: 'flex-start', lg: 'center' }}
+        alignItems={'flex-start'}
         justifyContent={'space-between'}
-        flexDirection={{ xs: 'column', md: 'row' }}
+        // flexDirection={{ xs: 'column', md: 'column', lg:'row' }}
+        flexDirection={'column'}
         marginY={4}
+        marginTop={0}
       >
-        <Box width={1} display={'flex'}>
+        <Box width={1} display={'flex'} >
           <Box
             display={'flex'}
             alignItems={'center'}
             paddingBottom={{ xs: 1, md: 0 }}
             overflow={'auto'}
           >
-            <Typography sx={{ whiteSpace: 'nowrap' }}>Filter by</Typography>
-            <Box marginX={1}>
-              <FilterSize />
+            <Typography 
+              variant={'h6'}
+              color={'primary'}
+              fontWeight={700}
+              sx={{
+                background: `linear-gradient(180deg, transparent 82%, ${alpha(
+                  theme.palette.secondary.main,
+                  0.3
+                )} 0%)`,
+                whiteSpace: 'nowrap'
+              }}
+            > 
+              Let's dance
+            </Typography>
+            <Box marginX={1} height={70}>
+              <FilterStyle />
             </Box>
-            <Box marginX={1}>
+            <Typography 
+              variant={'h6'}
+              color={'primary'}
+              fontWeight={700}
+              sx={{
+                background: `linear-gradient(180deg, transparent 82%, ${alpha(
+                  theme.palette.secondary.main,
+                  0.3
+                )} 0%)`,
+                whiteSpace: 'nowrap'
+              }}
+            >
+              in
+            </Typography>
+
+            <Box marginX={1} height={70} >
+              <FilterRegion />
+            </Box>
+            <Typography 
+              variant={'h6'}
+              color={'primary'}
+              fontWeight={700}
+              sx={{
+                background: `linear-gradient(180deg, transparent 82%, ${alpha(
+                  theme.palette.secondary.main,
+                  0.3
+                )} 0%)`,
+                whiteSpace: 'nowrap'
+              }}
+            >
+              @
+            </Typography>
+            <Box marginX={1}  alignContent={'center'} height={70} maxHeight={70}>
+              <FilterCountry />
+            </Box>
+
+            {/* <Box marginX={1}>
               <FilterPrice />
             </Box>
             <Box marginX={1}>
@@ -59,25 +106,38 @@ const FiltersWithDropdown = (): JSX.Element => {
             </Box>
             <Box marginX={1}>
               <FilterBrand />
-            </Box>
+            </Box> */}
+
           </Box>
         </Box>
+        
         <Box
           display={'flex'}
-          alignItems={'center'}
-          marginTop={{ xs: 1, md: 0 }}
+          alignItems={'flex-end'}
+          justifyContent={'space-between'}
+          flexDirection={'row-reverse'}
+          width={1}
         >
-          <Typography sx={{ whiteSpace: 'nowrap' }} marginRight={1}>
-            Sort by
-          </Typography>
-          <SortBySelectBox />
+          <Box
+            display={'flex'}
+            alignItems={'center'}
+            marginTop={1}
+          >
+            <Checkbox color='primary' />
+            <Typography fontWeight={700} sx={{ whiteSpace: 'nowrap' }} marginRight={1}>
+              Deals
+            </Typography>
+            {/* <SortBySelectBox /> */}
+          </Box>
         </Box>
+
       </Box>
-      <Box
-        borderRadius={2}
-        border={`4px dashed ${theme.palette.divider}`}
-        height={400}
-      />
+
+      <Box>{children}</Box>
+      <Box display={'flex'} justifyContent={'center'} width={1}>
+        <Pagination count={10} size={'large'} color="primary" />
+      </Box>
+
     </Container>
   );
 };
