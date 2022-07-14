@@ -89,7 +89,7 @@ const FilterStyle = (): JSX.Element => {
     handleClose();
   };
 
-  const handleCancel = () => {
+  const handleReset = () => {
     handleClose();
     setStyles([]);
   };
@@ -164,9 +164,9 @@ const FilterStyle = (): JSX.Element => {
                 fontWeight: 700,
                 color: 'text.primary',
               }}
-              onClick={handleCancel}
+              onClick={handleReset}
             >
-              Cancel
+              Reset
             </Button>
             <Button
               color={'primary'}

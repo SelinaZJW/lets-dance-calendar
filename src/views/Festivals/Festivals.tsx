@@ -6,13 +6,13 @@ import Container from 'components/Container';
 
 import {
   Headline,
-  Products,
+  FestivalList,
   SidebarFilters,
   Newsletter,
 } from './components';
 import FiltersWithDropdown from './components/FiltersWithDropdown';
 
-const Listing = (): JSX.Element => {
+const Festivals = (): JSX.Element => {
   return (
     <Main>
       <Box bgcolor={'alternate.main'} >
@@ -23,17 +23,17 @@ const Listing = (): JSX.Element => {
       {/* <Container paddingBottom={'0 !important'}>
         <Banner />
       </Container> */}
-      <Container paddingY={0} id='1'>
+      <Container paddingY={1} id='1'>
         <FiltersWithDropdown>
-          <Products />
+          <FestivalList />
         </FiltersWithDropdown>
       </Container>
       
-      <Container>
+      {/* <Container>
         <SidebarFilters>
           <Products />
         </SidebarFilters>
-      </Container>
+      </Container> */}
       
       <Box bgcolor={'alternate.main'}>
         <Container>
@@ -49,4 +49,4 @@ const Listing = (): JSX.Element => {
   );
 };
 
-export default Listing;
+export default Festivals;

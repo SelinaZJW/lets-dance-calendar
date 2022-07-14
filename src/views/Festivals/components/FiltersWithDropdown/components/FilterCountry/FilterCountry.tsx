@@ -55,7 +55,7 @@ const FilterCountry = (): JSX.Element => {
     handleClose();
   };
 
-  const handleCancel = () => {
+  const handleReset = () => {
     handleClose();
     setCountries([]);
   };
@@ -186,9 +186,9 @@ const FilterCountry = (): JSX.Element => {
                 fontWeight: 700,
                 color: 'text.primary',
               }}
-              onClick={handleCancel}
+              onClick={handleReset}
             >
-              Cancel
+              Reset
             </Button>
             <Button
               color={'primary'}
