@@ -9,6 +9,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-image-lightbox/style.css';
 import 'aos/dist/aos.css';
+// import 'react-big-calendar/lib/sass/styles.scss';
+import 'styles/calendar.scss';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function App({ Component, pageProps }): JSX.Element {

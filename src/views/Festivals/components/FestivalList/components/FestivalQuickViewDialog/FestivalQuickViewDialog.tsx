@@ -28,8 +28,11 @@ const FestivalQuickViewDialog = ({
   details,
 }: Props): JSX.Element => {
   return (
-    <Dialog onClose={onClose} open={open} maxWidth={'lg'}>
-      <Box paddingY={{ xs: 1, sm: 2 }} paddingX={{ xs: 2, sm: 4 }}>
+    <Dialog onClose={onClose} open={open} maxWidth={'lg'} fullWidth  >
+      <Box paddingY={{ xs: 1, sm: 2 }} paddingX={{ xs: 2, sm: 4 }} 
+        // width={1000}
+        // sx={{width: {xs: 400, sm: 700, md:800, lg: 1000}}}
+      >
         <Box
           paddingY={{ xs: 1, sm: 2 }}
           display={'flex'}

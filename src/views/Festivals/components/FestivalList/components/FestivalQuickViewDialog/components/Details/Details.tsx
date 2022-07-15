@@ -63,6 +63,7 @@ const Details = ({
       fontSize: 13,
     },
   });
+  
 
   // const title= {
   //   <React.Fragment>

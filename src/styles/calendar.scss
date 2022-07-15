@@ -1,0 +1,20 @@
+$event-bg: #407ced !default;
+
+.rbc-event {
+  font-weight: 500;
+  &.rbc-selected {
+    background-color: darken($event-bg, 80%);
+  }
+}
+
+.rbc-toolbar {
+  margin-bottom: 15px;
+  .rbc-toolbar-label {
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
+
+
+@import 'react-big-calendar/lib/sass/styles';
+//@import 'react-big-calendar/lib/addons/dragAndDrop/styles'; // if using DnD

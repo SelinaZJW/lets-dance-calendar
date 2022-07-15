@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.rbc-month-view {
+  height: 100vh;
+}
+
+.rbc-calendar {
+  min-height: 580px;
+}
+
+.rbc-event {
+  background-color: blue;
+}

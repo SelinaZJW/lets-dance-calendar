@@ -29,7 +29,7 @@ export const getStaticProps = async ({params}) => {
 };
 
 //SSG: Static Site Generation 
-    //recompling possible/legal pages at building stage, so it's not interacting with Directus in real time
+//recompling possible/legal pages at building stage, so it's not interacting with Directus in real time
 export async function getStaticPaths() {
   const directus = await getDirectusClient();
 

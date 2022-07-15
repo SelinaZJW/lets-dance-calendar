@@ -6,11 +6,10 @@ import Container from 'components/Container';
 
 import {
   Headline,
-  FestivalList,
-  SidebarFilters,
-  Newsletter,
-  FiltersWithDropdown
+  BigCalendar
 } from './components';
+import { FiltersWithDropdown, Newsletter } from '../Festivals/components';
+//import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const Festivals = (): JSX.Element => {
   return (
@@ -25,9 +24,12 @@ const Festivals = (): JSX.Element => {
       </Container> */}
       <Container paddingY={1} id='1'>
         <FiltersWithDropdown>
-          <FestivalList />
+          <BigCalendar />
+          {/* <BasicCalendar /> */}
+          {/* <FestivalList /> */}
         </FiltersWithDropdown>
       </Container>
+
       
       {/* <Container>
         <SidebarFilters>

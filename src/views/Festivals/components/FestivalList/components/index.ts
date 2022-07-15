@@ -1,1 +1,1 @@
-export { default as ProductQuickViewDialog } from './FestivalQuickViewDialog';
+export { default as FestivalQuickViewDialog } from './FestivalQuickViewDialog';

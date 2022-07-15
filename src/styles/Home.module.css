@@ -114,3 +114,11 @@
     flex-direction: column;
   }
 }
+
+.rbc-month-view {
+  height: 100vh;
+}
+
+.rbc-calendar {
+  min-height: 580px;
+}

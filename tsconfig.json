@@ -18,6 +18,6 @@
     "baseUrl": "src",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/views/Calendar/components/BigCalendar/BigCalendar.js"],
   "exclude": ["node_modules"]
 }

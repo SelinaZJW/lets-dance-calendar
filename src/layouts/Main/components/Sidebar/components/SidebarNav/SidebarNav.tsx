@@ -74,7 +74,7 @@ const SidebarNav = ({ colorInvert = false }: Props): JSX.Element => {
           <Link
             underline="none"
             component="a"
-            href="/listing"
+            href="/festivals"
             color={colorInvert ? 'common.white' : 'text.primary'}
             sx={{ display: 'flex', alignItems: 'center' }}
           >

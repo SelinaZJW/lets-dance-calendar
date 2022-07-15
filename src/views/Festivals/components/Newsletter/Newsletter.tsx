@@ -33,7 +33,7 @@ const Newsletter = (): JSX.Element => {
           Subscribe
         </Typography>
         <Typography variant="h4" align={'center'} sx={{ fontWeight: 700 }}>
-          Get the latest from our store
+          Receive the latest festival updates
         </Typography>
       </Box>
       <Box

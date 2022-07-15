@@ -9,7 +9,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
 
-import { ProductQuickViewDialog } from './components';
+import { FestivalQuickViewDialog } from './components';
 
 const mock = [
   {
@@ -354,7 +354,7 @@ const Products = (): JSX.Element => {
             </Card>
 
 
-            <ProductQuickViewDialog
+            <FestivalQuickViewDialog
               open={openId === i}
               onClose={() => setOpenId(null)}
               imageSrc={item.media}
