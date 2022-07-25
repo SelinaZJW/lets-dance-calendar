@@ -12,15 +12,15 @@ const Headline = (): JSX.Element => {
       justifyContent={'space-between'}
       alignItems={{ xs: 'flex-start', sm: 'center' }}
     >
-      <Typography marginBottom={{ xs: 1, sm: 0 }}>Product details</Typography>
+      <Typography marginLeft={{ xs: 0, sm: 5 }} marginBottom={{ xs: 1, sm: 0 }} variant={'h5'} fontWeight={700}>Festival Details</Typography>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="primary" href="/demos/ecommerce">
+        <Link underline="hover" color="primary" href="/home">
           Home
         </Link>
-        <Link underline="hover" color="primary" href="/demos/ecommerce/listing">
-          Listing
+        <Link underline="hover" color="primary" href="/festivals">
+          Festivals
         </Link>
-        <Typography color="text.primary">Product details</Typography>
+        <Typography color="text.primary">Details</Typography>
       </Breadcrumbs>
     </Box>
   );
