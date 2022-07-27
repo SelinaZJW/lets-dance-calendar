@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -21,10 +21,11 @@ import mock_regions from 'mock_data/regions';
 import mock_styles from 'mock_data/styles';
 
 interface Props {
-  children: React.ReactNode;
+  // children: React.ReactNode;
+  setFilters: (SelectedFilters) => void
 }
 
-const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
+const FiltersWithDropdown = ({ setFilters }: Props): JSX.Element => {
   const theme = useTheme();
   const full_countries = mock_regions.flatMap(r => r.countries);
   const full_styles = mock_styles;
@@ -35,6 +36,14 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
   const [countryFilter, setCountryFilter] = useState(full_countries); //country array used to filter festivals
   const [styleFilter, setStyleFilter] = useState(full_styles);
   const [showDeals, setShowDeals] = useState(false);
+
+  useEffect(() => {
+    setFilters({
+      styles: styleFilter,
+      countries: countryFilter,
+      deals: showDeals
+    });
+  }, [styleFilter, countryFilter, showDeals]);
 
   const handleRegionChange = (event) => {
     console.log(event.target.value);
@@ -77,15 +86,12 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
     }
   };
 
-  
-
   console.log('styles:', styleFilter);
   console.log('countries:', countryFilter);
   console.log('deals:' + showDeals);
 
-
   return (
-    <Container paddingY={4}>
+    <Container paddingTop={4}>
       <Box
         display={'flex'}
         // alignItems={{ xs: 'flex-start', md: 'flex-start', lg: 'center' }}
@@ -93,7 +99,7 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
         justifyContent={'space-between'}
         // flexDirection={{ xs: 'column', md: 'column', lg:'row' }}
         flexDirection={'column'}
-        marginY={4}
+        // marginY={4}
         marginTop={0}
       >
         <Box width={1} display={'flex'} >
@@ -208,11 +214,11 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
 
       </Box>
 
-      <Box marginBottom={8}>{children}</Box>
+      {/* <Box marginBottom={8}>{children}</Box>
 
       <Box display={'flex'} justifyContent={'center'} width={1}>
         <Pagination count={10} size={'large'} color="primary" />
-      </Box>
+      </Box> */}
 
     </Container>
   );
