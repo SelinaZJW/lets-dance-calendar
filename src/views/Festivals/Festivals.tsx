@@ -41,10 +41,6 @@ const Festivals = (): JSX.Element => {
         </Container>
       </Box>
       
-      {/* Deals here maybe?? */}
-      {/* <Container>
-        <Partners /> 
-      </Container> */}
     </Main>
   );
 };

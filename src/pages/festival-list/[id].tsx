@@ -17,7 +17,7 @@ export const getStaticProps = async ({params}) => {
 
   const data = await directus.items('Festivals').readOne(
     id, {
-      fields: ['*', 'styles.Styles_id.*', 'region.*', 'organiser.*']
+      fields: ['*', 'styles.Styles_id.*', 'region.*', 'organiser.*', 'specific_location.*']
     }
   );
 

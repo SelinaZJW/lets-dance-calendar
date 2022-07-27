@@ -8,13 +8,15 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
-const style_list = [
-  'Bachata', 'Ballroom', 'Bolero', 'Cha-cha',
-  'Cuban-Salsa', 'Flamenco', 'Kizomba', 'Mambo',
-  'Merengue', 'Salsa', 'Samba', 'Tango', 'Zouk'
-];
+import mock_styles from 'mock_data/styles';
+
+// const style_list = [
+//   'Bachata', 'Ballroom', 'Bolero', 'Cha-cha',
+//   'Cuban-Salsa', 'Flamenco', 'Kizomba', 'Mambo',
+//   'Merengue', 'Salsa', 'Samba', 'Tango', 'Zouk'
+// ];
  
-interface Props {
+interface StyleBoxProps {
   handleSelectionChange: (s: string) => void;
   s: string;
   i: number;
@@ -22,7 +24,7 @@ interface Props {
 }
 
 //so proud of this bit!!! PROBLEM SOLVERRRRRR
-const StyleBox = ({handleSelectionChange, s, i, styles}: Props): JSX.Element => {
+const StyleBox = ({handleSelectionChange, s, i, styles}: StyleBoxProps): JSX.Element => {
   const theme = useTheme();
   const defaultColor = styles.includes(s) ? theme.palette.primary.main : theme.palette.divider;
   const [borderColor, setBorderColor] = useState(defaultColor);
@@ -62,7 +64,13 @@ const StyleBox = ({handleSelectionChange, s, i, styles}: Props): JSX.Element => 
   );
 };
 
-const FilterStyle = (): JSX.Element => {
+
+interface FilterStyleProps {
+  handleStylesChange: (array) => void;
+  handleStylesReset: () => void
+}
+
+const FilterStyle = ({ handleStylesChange, handleStylesReset }: FilterStyleProps): JSX.Element => {
   const theme = useTheme();
   const [styles, setStyles] = useState([]);
   const [open, setOpen] = useState(false);
@@ -78,20 +86,22 @@ const FilterStyle = (): JSX.Element => {
   };
 
   const handleSelectionChange = (item) => {
-    const newStyles = styles;
+    const newStyles = [...styles];
     const index = newStyles.indexOf(item);
     index === -1 ? newStyles.push(item) : newStyles.splice(index, 1);
     setStyles(newStyles);
-    console.log(styles);
+    // console.log(styles);
   };
 
   const handleApply = () => {
     handleClose();
+    handleStylesChange(styles);
   };
 
   const handleReset = () => {
     handleClose();
     setStyles([]);
+    handleStylesReset();
   };
 
   const label = styles.length === 0 ? 'Style' : styles.join(', ');
@@ -146,7 +156,7 @@ const FilterStyle = (): JSX.Element => {
         <Stack spacing={2} width={460}>
           <Box padding={2}>
             <Grid container justifyItems={'center'} spacing={1} rowSpacing={1}>
-              {style_list.map((s, i) => (
+              {mock_styles.map((s, i) => (
                 <StyleBox s={s} i={i} handleSelectionChange={handleSelectionChange} styles={styles} key={i} />
               ))}
               

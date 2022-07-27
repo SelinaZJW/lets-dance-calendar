@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -16,8 +16,9 @@ import {
   FilterBrand,
   SortBySelectBox,
 } from './components';
-
 import Container from 'components/Container';
+import mock_regions from 'mock_data/regions';
+import mock_styles from 'mock_data/styles';
 
 interface Props {
   children: React.ReactNode;
@@ -25,6 +26,63 @@ interface Props {
 
 const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
   const theme = useTheme();
+  const full_countries = mock_regions.flatMap(r => r.countries);
+  const full_styles = mock_styles;
+
+  const [countrySelect, setCountrySelect] = useState([]);        //countries selected by checkbox
+  const [countryList, setCountryList] = useState(full_countries);   //country list displayed in filter
+
+  const [countryFilter, setCountryFilter] = useState(full_countries); //country array used to filter festivals
+  const [styleFilter, setStyleFilter] = useState(full_styles);
+  const [showDeals, setShowDeals] = useState(false);
+
+  const handleRegionChange = (event) => {
+    console.log(event.target.value);
+    setCountrySelect([]);
+
+    if (event.target.value !== 'Worldwide') {
+      const region_countries = mock_regions.find(r => r.name === event.target.value).countries;
+      setCountryList(region_countries);
+      setCountryFilter(region_countries);
+    }
+    if (event.target.value === 'Worldwide') {
+      setCountryList(full_countries);
+      setCountryFilter(full_countries);
+    }
+  };
+
+  const handleCountryChange = () => {
+    setCountryFilter(countrySelect);
+  };
+
+  const handleCountryReset = () => {
+    setCountryFilter(countryList);
+  };
+
+  const handleStylesChange = (styles: string[]) => {
+    setStyleFilter(styles);
+  };
+
+
+  const handleStylesReset = () => {
+    setStyleFilter(full_styles);
+  };
+
+  const handleShowDealsChange = () => {
+    if (showDeals === false) {
+      setShowDeals(true);
+    }
+    else {
+      setShowDeals(false);
+    }
+  };
+
+  
+
+  console.log('styles:', styleFilter);
+  console.log('countries:', countryFilter);
+  console.log('deals:' + showDeals);
+
 
   return (
     <Container paddingY={4}>
@@ -60,7 +118,7 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
               Let's dance
             </Typography>
             <Box marginX={1} height={70}>
-              <FilterStyle />
+              <FilterStyle handleStylesChange={handleStylesChange} handleStylesReset={handleStylesReset}  />
             </Box>
             <Typography 
               variant={'h6'}
@@ -78,7 +136,7 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
             </Typography>
 
             <Box marginX={1} height={70} >
-              <FilterRegion />
+              <FilterRegion handleRegionChange={handleRegionChange} />
             </Box>
             <Typography 
               variant={'h6'}
@@ -95,7 +153,7 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
               @
             </Typography>
             <Box marginX={1}  alignContent={'center'} height={70} maxHeight={70}>
-              <FilterCountry />
+              <FilterCountry country_list={countryList} countries={countrySelect} setCountries={setCountrySelect} handleCountryChange={handleCountryChange} handleCountryReset={handleCountryReset} />
             </Box>
 
             {/* <Box marginX={1}>
@@ -123,7 +181,7 @@ const FiltersWithDropdown = ({ children }: Props): JSX.Element => {
             alignItems={'center'}
             marginTop={1}
           >
-            <Checkbox color='primary' />
+            <Checkbox color='primary' onChange={handleShowDealsChange}  />
             <Typography fontWeight={700} sx={{ whiteSpace: 'nowrap' }} >
               Deals
             </Typography>

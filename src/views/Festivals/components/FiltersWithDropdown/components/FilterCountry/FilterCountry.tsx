@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,20 +12,18 @@ import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 
-const country_list = [
-  'Adidas',
-  'Nike',
-  'Puma',
-  'OVS',
-  'H&M',
-  'Reebok',
-  'Zara',
-  'Other'
-];
 
-const FilterCountry = (): JSX.Element => {
+interface Props {
+  country_list: Array<string>;
+  countries: Array<string>;
+  setCountries: React.Dispatch<React.SetStateAction<string[]>>;
+  handleCountryChange: () => void;
+  handleCountryReset: () => void
+}
+
+const FilterCountry = ({ country_list, countries, setCountries, handleCountryChange, handleCountryReset }: Props): JSX.Element => {
   const theme = useTheme();
-  const [countries, setCountries] = useState([]);
+  // const [countries, setCountries] = useState([]);
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [search, setSearch] = useState('');
@@ -41,7 +39,7 @@ const FilterCountry = (): JSX.Element => {
   };
 
   const handleCheckboxChange = (item) => {
-    const newCountries = countries;
+    const newCountries = [...countries];
     const index = newCountries.indexOf(item);
     index === -1 ? newCountries.push(item) : newCountries.splice(index, 1);
     setCountries(newCountries);
@@ -53,14 +51,17 @@ const FilterCountry = (): JSX.Element => {
 
   const handleApply = () => {
     handleClose();
+    handleCountryChange();
   };
 
   const handleReset = () => {
     handleClose();
+    setSearch('');
     setCountries([]);
+    handleCountryReset();
   };
 
-  const country_display = country_list.filter(c => c.includes(search));
+  const country_display = country_list.filter(c => c.toLowerCase().includes(search.toLowerCase()));
 
   const label = countries.length === 0 ? 'Country' : countries.join(', ');
 
@@ -157,14 +158,14 @@ const FilterCountry = (): JSX.Element => {
                 />
               </FormControl>
             </Box>
-            <Stack spacing={1} marginTop={1} marginLeft={2}>
-              {country_display.map((item) => (
-                <Box key={item}>
+            <Stack spacing={1} marginTop={1} marginLeft={2}>            
+              {country_display.map((item, index) => (
+                <Box key={index}>                
                   <FormControlLabel
                     control={
                       <Checkbox
                         color="primary"
-                        defaultChecked={countries.indexOf(item) >= 0}
+                        checked={countries.indexOf(item) >= 0}
                         onChange={() => handleCheckboxChange(item)}
                       />
                     }
