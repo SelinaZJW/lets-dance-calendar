@@ -12,7 +12,7 @@ export default [
     id: 1,
     title: 'Long Event',
     start: new Date(2022, 3, 7),
-    end: new Date(2022, 3, 10),
+    end: new Date(2022, 3, 9),
   },
 
   {

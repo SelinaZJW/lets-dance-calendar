@@ -12,6 +12,7 @@ import {
   FiltersWithDropdown
 } from './components';
 import { SelectedFilters } from './components/FiltersWithDropdown/types';
+import mock_festivals from 'mock_data/festivals';
 
 const Festivals = (): JSX.Element => {
 
@@ -21,6 +22,7 @@ const Festivals = (): JSX.Element => {
     deals: false
   });
 
+  console.log(mock_festivals);
   
 
   return (

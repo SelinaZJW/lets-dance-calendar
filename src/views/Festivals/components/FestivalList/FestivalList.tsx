@@ -10,118 +10,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
 import Pagination from '@mui/material/Pagination';
 
-import { FestivalQuickViewDialog } from './components';
+import { FestivalQuickViewDialog, DiscountTag } from './components';
+import mock_festivals from 'mock_data/festivals';
+import { months_short } from 'mock_data/dates';
 
-const mock = [
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
-    title: 'The Big Salsa Fest',
-    description: 'Discover the new collection of Adidas.',
-    price: '$69.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 5,
-    reviewCount: 12,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
-    title: '12th San Francisco Intl Bachata Festival 2022',
-    description: 'Colorful shoes designed for everyone.',
-    price: '$39.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 4,
-    reviewCount: 6,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
-    title: 'Nike',
-    description: 'New arrivals of Nike sport shoes.',
-    price: '$49.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 5,
-    reviewCount: 8,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
-    title: 'Sneakers',
-    description: 'Trendy Sneakers designed for everyone.',
-    price: '$59.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 4,
-    reviewCount: 10,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
-    title: 'Adidas shoes',
-    description: 'Discover the new collection of Adidas.',
-    price: '$69.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 5,
-    reviewCount: 12,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
-    title: 'Colorful shoes',
-    description: 'Colorful shoes designed for everyone.',
-    price: '$39.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 4,
-    reviewCount: 6,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
-    title: 'Nike',
-    description: 'New arrivals of Nike sport shoes.',
-    price: '$49.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 5,
-    reviewCount: 8,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
-    title: 'Sneakers',
-    description: 'Trendy Sneakers designed for everyone.',
-    price: '$59.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 4,
-    reviewCount: 10,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
-    title: 'Adidas shoes',
-    description: 'Discover the new collection of Adidas.',
-    price: '$69.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 5,
-    reviewCount: 12,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
-    title: 'Colorful shoes',
-    description: 'Colorful shoes designed for everyone.',
-    price: '$39.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 4,
-    reviewCount: 6,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
-    title: 'Nike',
-    description: 'New arrivals of Nike sport shoes.',
-    price: '$49.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 5,
-    reviewCount: 8,
-  },
-  {
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
-    title: 'Sneakers',
-    description: 'Trendy Sneakers designed for everyone.',
-    price: '$59.90',
-    href: '/demos/ecommerce/product-overview',
-    reviewScore: 4,
-    reviewCount: 10,
-  },
-];
+const festivals_sorted = mock_festivals.sort((a, b) => a.start.getTime() - b.start.getTime());
 
 const Products = (): JSX.Element => {
   const theme = useTheme();
@@ -131,7 +24,7 @@ const Products = (): JSX.Element => {
     <Box>
       <Box marginBottom={8} >
         <Grid container spacing={{ xs: 4, md: 2 }}>
-          {mock.map((item, i) => (
+          {festivals_sorted.map((item, i) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={i} >
               <Box display={'block'} width={1} height={1} >
                 <Card
@@ -157,39 +50,7 @@ const Products = (): JSX.Element => {
                         theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none',
                     }}
                   >
-                    <Box
-                      padding={1}
-                      bgcolor={'red'}
-                      boxShadow={2}
-                      borderRadius={2}
-                      position={'absolute'}
-                      top={16}
-                      right={16}
-                      display={'flex'}
-                      alignItems={'center'}
-                      sx={{ cursor: 'pointer' }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 611.999 611.999"
-                        fill="white"
-                        width={20}
-                        height={17}
-                      >
-                        <path
-                          d='M216.02,611.195c5.978,3.178,12.284-3.704,8.624-9.4c-19.866-30.919-38.678-82.947-8.706-149.952
-                          c49.982-111.737,80.396-169.609,80.396-169.609s16.177,67.536,60.029,127.585c42.205,57.793,65.306,130.478,28.064,191.029
-                          c-3.495,5.683,2.668,12.388,8.607,9.349c46.1-23.582,97.806-70.885,103.64-165.017c2.151-28.764-1.075-69.034-17.206-119.851
-                          c-20.741-64.406-46.239-94.459-60.992-107.365c-4.413-3.861-11.276-0.439-10.914,5.413c4.299,69.494-21.845,87.129-36.726,47.386
-                          c-5.943-15.874-9.409-43.33-9.409-76.766c0-55.665-16.15-112.967-51.755-159.531c-9.259-12.109-20.093-23.424-32.523-33.073
-                          c-4.5-3.494-11.023,0.018-10.611,5.7c2.734,37.736,0.257,145.885-94.624,275.089c-86.029,119.851-52.693,211.896-40.864,236.826
-                          C153.666,566.767,185.212,594.814,216.02,611.195z'
-                        />
-                      </svg>
-                      <Typography color={'white'} variant={'body2'} fontWeight={1000}>
-                        10% OFF
-                      </Typography>
-                    </Box>
+                    {item.discount ? <DiscountTag discount={item.discount} /> : null}
                   </CardMedia>
                   
                   <Box display={'flex'} alignItems={'flex-start'} justifyContent={'space-between'}>
@@ -210,7 +71,7 @@ const Products = (): JSX.Element => {
                         variant={'subtitle1'}
                         color={'text.secondary'}
                       >
-                        location, location
+                        {item.city ? `${item.city}, ` : null} {item.country}
                       </Typography>
                     </Box>
                     
@@ -222,16 +83,17 @@ const Products = (): JSX.Element => {
                         marginLeft={0.5}
                         paddingBottom={0}
                       >
-                        20
+                        {item.start.getDate()}
                       </Typography>
                       <Typography
                         variant={'subtitle1'}
                         color={theme.palette.secondary.main}
                         marginLeft={0.5}
+                        fontWeight={550}
                         sx={{ textTransform: 'uppercase' }}
                         paddingTop={0}
                       >
-                        July
+                        {months_short[item.start.getMonth()]}
                       </Typography>
                       {/* <Typography
                         variant={'caption'}
@@ -363,11 +225,17 @@ const Products = (): JSX.Element => {
                   imageSrc={item.media}
                   details={{
                     title: item.title,
-                    description: item.description,
-                    price: item.price,
-                    href: item.href,
-                    reviewScore: 5,
-                    reviewCount: 12,
+                    city: item.city,
+                    country: item.country,
+                    specific_location: item.specific_location,
+                    styles: item.styles,
+                    start: item.start,
+                    organiser: item.organiser,
+                    website: item.website,
+                    facebook: item.facebook,
+                    ticket: item.ticket,
+                    discount: item.discount,
+                    contact: item.contact,
                   }}
                 />
               </Box>

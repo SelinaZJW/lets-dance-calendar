@@ -12,7 +12,7 @@ const mock_regions = [
   {
     name: 'Carribeans',
     id: 3,
-    countries: ['Barbados', 'Jamaica', 'St. Barthemeleus']
+    countries: ['Barbados', 'Jamaica', 'St. Barthemeleus', 'Carribeans']
   }, 
   {
     name: 'Central America',
@@ -22,7 +22,7 @@ const mock_regions = [
   {
     name: 'North America',
     id: 5,
-    countries: ['United States of America', 'Canada']
+    countries: ['USA', 'Canada']
   },
   {
     name: 'South America',
@@ -32,7 +32,7 @@ const mock_regions = [
   {
     name: 'Europe',
     id: 7,
-    countries: ['United Kingdom', 'Spain', 'France', 'Germany', 'Poland', 'Netherlands', 'Denmark', 'Norway', 'Croatia', 'Ukraine']
+    countries: ['UK', 'Spain', 'France', 'Germany', 'Poland', 'Netherlands', 'Denmark', 'Norway', 'Croatia', 'Ukraine', 'Sweden']
   },
   {
     name: 'Middle East',
