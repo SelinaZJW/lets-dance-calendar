@@ -1,1 +1,1 @@
-export { default } from './BigCalendar.js';
+export { default } from './BigCalendar';

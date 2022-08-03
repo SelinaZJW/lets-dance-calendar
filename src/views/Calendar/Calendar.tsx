@@ -10,15 +10,28 @@ import {
 } from './components';
 import { FiltersWithDropdown, Newsletter } from '../Festivals/components';
 import { SelectedFilters } from 'views/Festivals/components/FiltersWithDropdown/types';
+import mock_festivals from 'mock_data/festivals';
 //import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const Festivals = (): JSX.Element => {
+
+  const festivals_sorted_time = mock_festivals.sort((a, b) => a.start.getTime() - b.start.getTime());
 
   const [filters, setFilters] = useState<SelectedFilters>({
     styles: [],
     countries: [],
     deals: false
   });
+
+  const findCommonElements = (arr1: string[], arr2: string[]) => {
+    return arr1.some(item => arr2.includes(item));
+  };
+
+  const festivals_sorted_country = festivals_sorted_time.filter(f => filters.countries.includes(f.country));
+  const festivals_sorted_deals = filters.deals === true ? festivals_sorted_country.filter(f => f.discount) : festivals_sorted_country;
+  const festival_sorted_styles = festivals_sorted_deals.filter(f => findCommonElements(f.styles, filters.styles));
+
+  const festivals_display = festival_sorted_styles;
 
   return (
     <Main>
@@ -35,7 +48,7 @@ const Festivals = (): JSX.Element => {
       </Container>
 
       <Container paddingY={1} marginBottom={8} >
-        <BigCalendar />
+        <BigCalendar festivals={festivals_display} />
       </Container>
 
       

@@ -1,22 +1,21 @@
 import React, { Fragment, useMemo, useRef, useEffect, useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
-import events from './events';
 import moment from 'moment';
 import { Box } from '@mui/material';
 
 import { FestivalQuickViewDialog } from 'views/Festivals/components/FestivalList/components';
-
+import mock_festivals from 'mock_data/festivals';
+import { FestivalsProps } from 'views/Festivals/components/FestivalList/FestivalList';
 
 const localizer = momentLocalizer(moment);
 
-export default function BigCalendar() {
+const BigCalendar = ({ festivals }: FestivalsProps): JSX.Element => {
   const [openId, setOpenId] = useState(null);
   const clickRef = useRef(null);
 
-  const { components, defaultDate, max, views } = useMemo(
+  const { defaultDate, views } = useMemo(
     () => ({
-      defaultDate: new Date(2022, 3, 1),
+      defaultDate: new Date(),
       views: [Views.MONTH, Views.AGENDA],
       // max: dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours'),
     }),
@@ -34,7 +33,7 @@ export default function BigCalendar() {
     window.clearTimeout(clickRef?.current);
     clickRef.current = window.setTimeout(() => {
       // window.alert(JSON.stringify(calEvent.id));
-      console.log(calEvent.id);
+      // console.log(calEvent.id);
       setOpenId(calEvent.id);
     }, 200);
   }, []);
@@ -52,7 +51,7 @@ export default function BigCalendar() {
         <Calendar
           // components={components}
           defaultDate={defaultDate}
-          events={events}
+          events={festivals}
           localizer={localizer}
           views={views}
           popup
@@ -60,28 +59,33 @@ export default function BigCalendar() {
         />
       </Box>
 
-      {events.map((item) => {
+      {festivals.map((item) => {
         return (      
           <FestivalQuickViewDialog
             key={item.id}
             open={openId === item.id}
             onClose={() => setOpenId(null)}
-            imageSrc={null}
+            imageSrc={item.media}
             details={{
               title: item.title,
-              description: '',
-              price: '',
-              href: '',
-              reviewScore: 5,
-              reviewCount: 12,
+              city: item.city,
+              country: item.country,
+              specific_location: item.specific_location,
+              styles: item.styles,
+              start: item.start,
+              organiser: item.organiser,
+              website: item.website,
+              facebook: item.facebook,
+              ticket: item.ticket,
+              discount: item.discount,
+              contact: item.contact,
             }}
           />
         );
       })}
     </Fragment>
   );
-}
+};
 
-// BigCalendar.propTypes = {
-//   localizer: PropTypes.instanceOf(DateLocalizer),
-// };
+export default BigCalendar;
+

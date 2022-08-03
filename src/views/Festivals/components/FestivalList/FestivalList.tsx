@@ -11,12 +11,33 @@ import Link from '@mui/material/Link';
 import Pagination from '@mui/material/Pagination';
 
 import { FestivalQuickViewDialog, DiscountTag } from './components';
-import mock_festivals from 'mock_data/festivals';
+// import mock_festivals from 'mock_data/festivals';
 import { months_short } from 'mock_data/dates';
 
-const festivals_sorted = mock_festivals.sort((a, b) => a.start.getTime() - b.start.getTime());
+// const festivals_sorted = mock_festivals.sort((a, b) => a.start.getTime() - b.start.getTime());
 
-const Products = (): JSX.Element => {
+interface FestivalItem {
+  id: number;
+  title: string;
+  media: string;
+  city: string;
+  country: string;
+  specific_location: string;
+  styles: string[];
+  start: Date;
+  discount?: string;
+  organiser?: string;
+  website?: string;
+  facebook?: string;
+  ticket?: string;
+  contact?: string;
+}
+
+export interface FestivalsProps {
+  festivals: FestivalItem[]
+}
+
+const Products = ({ festivals }: FestivalsProps): JSX.Element => {
   const theme = useTheme();
   const [openId, setOpenId] = useState(null);
 
@@ -24,7 +45,7 @@ const Products = (): JSX.Element => {
     <Box>
       <Box marginBottom={8} >
         <Grid container spacing={{ xs: 4, md: 2 }}>
-          {festivals_sorted.map((item, i) => (
+          {festivals.map((item, i) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={i} >
               <Box display={'block'} width={1} height={1} >
                 <Card
