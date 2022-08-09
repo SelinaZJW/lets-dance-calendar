@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -22,13 +23,21 @@ const Footer = (): JSX.Element => {
           flexDirection={{ xs: 'column', sm: 'row' }}
         >
           <Box
-            display={'flex'}
-            component="a"
-            href="/"
-            title="theFront"
-            width={80}
+            // display={'flex'}
+            // component="a"
+            // href="/"
+            // title="theFront"
+            // width={80}
           >
-            <Box
+            <Typography
+              align={'center'}
+              variant={'subtitle1'}
+              color="text.primary"
+              gutterBottom
+            >
+              Let's Dance! Calendar
+            </Typography>
+            {/* <Box
               component={'img'}
               src={
                 mode === 'light'
@@ -37,7 +46,7 @@ const Footer = (): JSX.Element => {
               }
               height={1}
               width={1}
-            />
+            /> */}
           </Box>
           {/* 
           <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>

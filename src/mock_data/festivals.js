@@ -1,7 +1,7 @@
 const festival_list = [
   {
     id: 0,
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
+    media: '/static/tango.png',
     title: 'The Big Salsa Fest',
     city: 'Munich',
     country: 'Germany',
@@ -16,7 +16,7 @@ const festival_list = [
   },
   {
     id: 1,
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
+    media: '/static/tango1.jpeg',
     title: '12th San Francisco Intl Bachata Festival 2022',
     city: 'San Francisco',
     country: 'USA',
@@ -32,7 +32,7 @@ const festival_list = [
   },
   {
     id: 2,
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
+    media: '/static/tango.png',
     title: 'Aventura Dance Cruise 2023',
     city: 'Florida',
     country: 'USA',
@@ -44,7 +44,7 @@ const festival_list = [
   },
   {
     id: 3,
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
+    media: '/static/tango1.jpeg',
     title: '12th ALOCUBANO Salsa Festival 2022 Stockholm',
     city: 'Stockholm',
     country: 'Sweden',
@@ -58,7 +58,7 @@ const festival_list = [
   },
   {
     id: 4,
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
+    media: '/static/tango.png',
     title: 'ALFA 2022 : Afro-Latin Festival Asia ',
     city: 'Kuala Lumpur',
     country: 'Malaysia',
@@ -74,7 +74,7 @@ const festival_list = [
   },
   {
     id: 5,
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
+    media: '/static/tango1.jpeg',
     title: '10th AfroLatin Dance Holidays ',
     city: '',
     country: 'Egypt',
@@ -89,7 +89,7 @@ const festival_list = [
   },
   {
     id: 6,
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
+    media: '/static/tango.png',
     title: '17th El Sol Salsa Festival 2022',
     city: 'Warsaw',
     country: 'Poland',
@@ -105,7 +105,7 @@ const festival_list = [
   },
   {
     id: 7,
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
+    media: '/static/tango1.jpeg',
     title: 'Sneakers',
     city: 'Warsaw',
     country: 'Poland',
@@ -120,7 +120,7 @@ const festival_list = [
   },
   {
     id: 8,
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
+    media: '/static/tango.png',
     title: 'Mamboland Montreal Rising',
     city: 'Montreal',
     country: 'Canada',
@@ -134,7 +134,7 @@ const festival_list = [
   },
   {
     id: 9,
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
+    media: '/static/tango1.jpeg',
     title: 'Aruba Dance Congress',
     city: '',
     country: 'Carribeans',
@@ -148,7 +148,7 @@ const festival_list = [
   },
   {
     id: 10,
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
+    media: '/static/tango.png',
     title: '9th Latin Festival Madras',
     city: 'Chennai (Madras)',
     country: 'India',
@@ -162,7 +162,7 @@ const festival_list = [
   },
   {
     id:11,
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
+    media: '/static/tango1.jpeg',
     title: 'London Salsa Marathon',
     city: 'London',
     country: 'UK',

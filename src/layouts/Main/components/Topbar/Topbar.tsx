@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
+import Typography from '@mui/material/Typography';
 
 // import { NavItem } from './components';
 import TopNav from 'components/TopNav';
@@ -46,12 +48,20 @@ const Topbar = ({
     >
       <Box
         display={'flex'}
-        component="a"
-        href="/"
-        title="theFront"
+        // component="a"
+        // href="/"
+        // title="theFront"
         width={{ xs: 100, md: 120 }}
       >
-        <Box
+        <Typography
+          align={'center'}
+          variant={'subtitle1'}
+          color="text.primary"
+          gutterBottom
+        >
+          Let's Dance! Calendar
+        </Typography>
+        {/* <Box
           component={'img'}
           src={
             mode === 'light' && !colorInvert
@@ -60,7 +70,7 @@ const Topbar = ({
           }
           height={1}
           width={1}
-        />
+        /> */}
       </Box>
       
       <TopNav />
