@@ -2,10 +2,10 @@
 
 A catalogue of latin dance festivals worldwide, featuring a calendar view, event quick views and filters by dance styles, locations and discounts.
 
-Libraries used:
-- [MUI](https://mui.com/) for webpage components.
+Libraries/platforms used:
+- [MUI](https://mui.com/) components to create page landings.
 - [React-big-calendar](https://github.com/jquense/react-big-calendar) for calendar view.
-- [Directus](https://directus.io/) as backend platform.
+- Backend and REST APIs implemented by [Directus](https://directus.io/).
 - Typescript.
 
 ## Product features
