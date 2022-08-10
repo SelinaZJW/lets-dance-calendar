@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Let's Dance! Calendar
 
-## Getting Started
+A catalogue of latin dance festivals worldwide, featuring a calendar view, event quick views and filters by dance styles, locations and discounts.
 
-First, run the development server:
+Libraries used:
+- [MUI](https://mui.com/) for webpage components.
+- [React-big-calendar] (https://github.com/jquense/react-big-calendar) for calendar view.
+- [Directus](https://directus.io/) as backend platform.
+- Typescript.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Product features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+See below 2 short clips showcasing the key product features of the Let's Dance! Calendar. This is still a work in progress. The festivals are hard-coded mock data to implement and test out the website functionalities.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- ### Simple listings view
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Filter, show quick views, link to details page.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[LDC-listings.webm](https://user-images.githubusercontent.com/84102041/183907495-62e33f34-1ad7-400f-970c-6e7409f02af8.webm)
 
-## Learn More
+- ### Calendar view
 
-To learn more about Next.js, take a look at the following resources:
+Filter, show agenda, change months, show quick views, link to details page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[LDC-calendar.webm](https://user-images.githubusercontent.com/84102041/183907444-7650636d-a79f-45a5-ae61-ecc3b4622a07.webm)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+There will also be a home page introducing the features and a details page for each festival that allows users to share specific events. The next step is to develop a backend service with directus so I can proceed with the other pages.
